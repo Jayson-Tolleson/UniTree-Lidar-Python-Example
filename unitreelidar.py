@@ -95,7 +95,7 @@ def plot(pointlist):
     sctt = ax.scatter3D(pointlist[0], pointlist[1], pointlist[2], alpha = pointslist[3], c = 'blue', cmap = my_cmap, marker ='^')
     plt.title("Lidar Scan 3D scatter plot")
     fig.colorbar(sctt, ax = ax, shrink = 0.5, aspect = 5)
-    plt.savefig('/usr/share/fishviewer/xyz.jpg')
+    plt.savefig('xyz.jpg')
     return sctt,ax
 #########################################
 def plot_updater(sctt,ax,pointlist):
@@ -104,7 +104,7 @@ def plot_updater(sctt,ax,pointlist):
     sctt.set_xdata(pointlist[0])
     sctt.set_ydata(pointlist[1])
     sctt.set_3d_properties(pointlist[2])
-    plt.savefig('/usr/share/fishviewer/xyz.jpg')
+    plt.savefig('xyz.jpg')
     return sctt,ax
 ########################################
 #############################################################################
