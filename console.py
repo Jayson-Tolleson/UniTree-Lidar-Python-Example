@@ -20,7 +20,8 @@ def out(number):
     -moz-resize:none;
     resize:none;
 }
-</style><body style='color:MediumSeaGreen;'><h1><div id='data' style='text-align: center;'>nothing received yet...for </div></h1><script>var div = document.getElementById('data');</script></body></html>"""
+</style><body style='color:MediumSeaGreen;'><h1><div id='data' style='text-align: center;'>nothing received yet...for </div></h1><script>var div = document.getElementById('data');</script><img src="xyz.jpg" alt="pointcloudimg" width="1200" height="800">
+</img></body></html>"""
     p = subprocess.Popen('sudo python3 /home/jay/Documents/unitree\ lidar/unitreelidar.py '+str(number), shell=True, stdout=subprocess.PIPE, stderr=STDOUT)
     while True:
         out = ((p.stdout.readline()).strip()) 
