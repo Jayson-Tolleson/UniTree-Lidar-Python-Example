@@ -4,7 +4,7 @@ import subprocess
 from subprocess import Popen, PIPE, STDOUT
 from flask import Flask, Response, request, render_template, redirect, url_for
 import time
-app = Flask(__name__, static_url_path='')
+app = Flask(__name__, static_url_path='/')
 @app.route('/out/<number>')
 def out(number):
   def output():
@@ -20,7 +20,7 @@ def out(number):
     -moz-resize:none;
     resize:none;
 }
-</style><body style='color:MediumSeaGreen;'><h1><div id='data' style='text-align: center;'>nothing received yet...for </div></h1><script>var div = document.getElementById('data');</script><img src="xyz.jpg" alt="pointcloudimg" width="1200" height="800">
+</style><body style='color:MediumSeaGreen;'><h1><div id='data' style='text-align: center;'>nothing received yet...for </div></h1><script>var div = document.getElementById('data');</script><img src="/xyz.jpg" alt="pointcloudimg" width="1200" height="800">
 </img></body></html>"""
     p = subprocess.Popen('sudo python3 /home/jay/Documents/unitree\ lidar/unitreelidar.py '+str(number), shell=True, stdout=subprocess.PIPE, stderr=STDOUT)
     while True:
