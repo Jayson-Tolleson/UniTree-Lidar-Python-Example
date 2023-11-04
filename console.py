@@ -4,15 +4,15 @@ import subprocess
 from subprocess import Popen, PIPE, STDOUT
 from flask import Flask, Response, request, render_template, redirect, url_for
 import time
-app = Flask(__name__, static_url_path='/')
+app = Flask(__name__, static_url_path='/static')
 @app.route('/out/<number>')
 def out(number):
   def output():
-    yield """<html><style>div#container{background: black;width: 50%;margin: 100px auto;color: white;border-radius: 1em;width: 1200px;height: 1000px;overflow:hidden;overflow-x:hidden;-webkit-resize:vertical;-moz-resize:vertical;} iframe#embed
+    yield """<html><style>div#container{background: black;width: 50%;margin: 100px auto;color: white;border-radius: 1em;width: 1200px;height: 1000px;overflow:hidden;overflow-x:hidden;-webkit-resize:vertical;-moz-resize:vertical;} iframe#Frame
 {  
     width:1500px;       /* set this to approximate width of entire page you're embedding */
     height:1200px;      /* determines where the bottom of the page cuts off */
-    margin-left:400px; /* clipping left side of page */
+    margin-left:00px; /* clipping left side of page */
     margin-top:0px;  /* clipping top of page */
     overflow:hidden;
     /* resize seems to inherit in at least Firefox */
@@ -20,8 +20,16 @@ def out(number):
     -moz-resize:none;
     resize:none;
 }
-</style><body style='color:MediumSeaGreen;'><h1><div id='data' style='text-align: center;'>nothing received yet...for </div></h1><script>var div = document.getElementById('data');</script><img src="/xyz.jpg" alt="pointcloudimg" width="1200" height="800">
-</img></body></html>"""
+</style><body style='color:MediumSeaGreen;'><h1><div id='data' style='text-align: center;'>nothing received yet...for </div></h1><script>var div = document.getElementById('data');</script><script type="text/javascript">
+   setInterval(refreshIframe, 1000);
+   function refreshIframe() {
+       var frame = document.getElementById("Frame");
+       frame.src = frame.src;
+   }
+</script>
+
+<div id='container'><iframe id="Frame" src="/static/xyz.jpg" frameborder="0"></iframe></container>
+</body></html>"""
     p = subprocess.Popen('sudo python3 /home/jay/Documents/unitree\ lidar/unitreelidar.py '+str(number), shell=True, stdout=subprocess.PIPE, stderr=STDOUT)
     while True:
         out = ((p.stdout.readline()).strip()) 
