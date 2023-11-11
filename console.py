@@ -20,17 +20,16 @@ def out(number):
     -moz-resize:none;
     resize:none;
 }
-</style><body style='color:MediumSeaGreen;'><h1><div id='data' style='text-align: center;'>nothing received yet...for </div></h1><script>var div = document.getElementById('data');</script><script type="text/javascript">
+</style><body style='color:MediumSeaGreen;'><h1><div id='data' style='text-align: center;'>nothing received yet...for </div></h1><script>var div = document.getElementById('data');</script><script type='text/javascript'>
    setInterval(refreshIframe, 1000);
    function refreshIframe() {
-       var frame = document.getElementById("Frame");
-       frame.src = frame.src;
-   }
+       var frame = document.getElementById('Frame');
+       frame.src = frame.src;  }
 </script>
-
-<div id='container'><iframe id="Frame" src="/static/xyz.jpg" frameborder="0"></iframe></container>
+<div id='container'><iframe id='Frame' scrolling='no'src='/static/xyz.jpg' frameborder='0'></iframe></div>
+<div id='container'><iframe id='Frame' scrolling='no' src='/static/point_cloud_layer.html' frameborder='0'></iframe></div>
 </body></html>"""
-    p = subprocess.Popen('sudo python3 /home/jay/Documents/unitree\ lidar/unitreelidar.py '+str(number), shell=True, stdout=subprocess.PIPE, stderr=STDOUT)
+    p = subprocess.Popen('sudo python3 /home/jay/Documents/unitree-lidar/unitreelidar.py '+str(number), shell=True, stdout=subprocess.PIPE, stderr=STDOUT)
     while True:
         out = ((p.stdout.readline()).strip()) 
         out =str(out)
