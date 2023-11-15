@@ -1,6 +1,8 @@
 Unitree Lidar FishViewer
 
-sudo python3 START_UniTree_Lidar.py
+sudo python3 console.py 
+
+go to localhost:8080/fishviewer
 
 ![lidarwphone](https://github.com/Jayson-Tolleson/UniTree-Lidar-Python-Example/assets/30577311/669efdfc-5b8f-4735-b27c-8459c7754e96)
 ![fishviewer0](https://github.com/Jayson-Tolleson/UniTree-Lidar-Python-Example/assets/30577311/182a9517-82a7-4686-ba78-4110cd7e2f69)
